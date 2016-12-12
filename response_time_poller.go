@@ -40,7 +40,7 @@ func NewResponseTimePoller(config Config) chan float32 {
 		rtp.pollNewRelic()
 
 		ticker := time.Tick(time.Duration(config.PollingInterval) * time.Second)
-		for range ticker {
+		for _ = range ticker { // Go 1.3-compatible syntax (sigh)
 			rtp.pollNewRelic()
 		}
 	}()
