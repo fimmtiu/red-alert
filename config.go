@@ -10,8 +10,8 @@ import (
 const usageString = "Usage: red-alert [config-file]"
 
 type Config struct {
-	PollingInterval    int    // Poll New Relic every N seconds
-	DurationForAverage int    // Calculate average response time based on the last N minutes
+	PollingInterval    uint   // Poll New Relic every N seconds
+	DurationForAverage uint   // Calculate average response time based on the last N minutes
 	ApiKey             string // The New Relic API key
 	ApplicationId      string // The New Relic application ID
 }
