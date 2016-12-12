@@ -38,7 +38,7 @@ func GetConfig() Config {
 	}
 
 	if _, err := toml.DecodeFile(logfile, &config); err != nil {
-		log.Fatal("Couldn't read config file %s: %s", logfile, err)
+		log.Fatalf("Couldn't read config file %s: %s", logfile, err)
 	}
 
 	if config.ApiKey == "" {
