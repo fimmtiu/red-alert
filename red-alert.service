@@ -1,0 +1,13 @@
+# A simple systemd service script for red-alert.
+
+[Unit]
+Description=A noisy monitoring daemon for New Relic data.
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/pi/go/bin/red-alert
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
