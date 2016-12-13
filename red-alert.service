@@ -6,7 +6,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/home/pi/go/bin/red-alert
+ExecStart=/home/pi/go/bin/red-alert /home/pi/.red-alert.config
 Restart=on-failure
 
 [Install]
