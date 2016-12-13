@@ -30,6 +30,7 @@ func GetConfig() Config {
 	config := defaultConfig
 	var logfile string
 
+	flag.Parse()
 	switch len(flag.Args()) {
 	case 0:
 		logfile = os.Getenv("HOME") + "/.red-alert.config"
