@@ -54,12 +54,6 @@ func NewResponseTimePoller(config Config) chan float32 {
 func (rtp *ResponseTimePoller) pollNewRelic() {
 	averageCall, success := rtp.getAverageCallTime()
 	if success {
-		switch rand.Intn(20) {
-		case 1:
-			averageCall = 180.0
-		case 2:
-			averageCall = 300.0
-		}
 		rtp.channel <- averageCall
 	}
 }

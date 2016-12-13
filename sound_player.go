@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os/exec"
 )
 
 func NewSoundPlayer() chan string {
@@ -9,7 +10,10 @@ func NewSoundPlayer() chan string {
 
 	go func() {
 		for soundFile := range player {
-			log.Printf("FIXME: Played %s", soundFile)
+			command := exec.Command("play", soundFile)
+			if err := command.Run(); err != nil {
+				log.Printf("Error playing sound: %s", err)
+			}
 		}
 	}()
 

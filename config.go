@@ -18,7 +18,7 @@ type Config struct {
 
 var defaultConfig Config = Config{
 	30, // PollingInterval
-	15, // DurationForAverage
+	10, // DurationForAverage
 	"", // ApiKey
 	"", // ApplicationId
 }

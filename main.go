@@ -14,9 +14,9 @@ type Threshold struct {
 
 // TODO: Load these from the config file.
 var thresholds = [...]Threshold{
-	Threshold{"Normal", -1.0, ""},                        // No issues
-	Threshold{"Yellow Alert", 170.0, "yellow_alert.mp3"}, // Bad but functional
-	Threshold{"Red Alert", 250.0, "red_alert.mp3"},       // We're probably boned
+	Threshold{"Normal", -1.0, ""},                               // No issues
+	Threshold{"Yellow Alert", 170.0, "sounds/yellow_alert.mp3"}, // Bad but semi-functional
+	Threshold{"Red Alert", 250.0, "sounds/red_alert.mp3"},       // We're probably boned
 }
 
 func main() {
