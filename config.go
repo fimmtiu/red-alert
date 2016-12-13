@@ -14,13 +14,15 @@ type Config struct {
 	DurationForAverage uint   // Calculate average response time based on the last N minutes
 	ApiKey             string // The New Relic API key
 	ApplicationId      string // The New Relic application ID
+	SoundsDir          string // The directory containing the sound files
 }
 
 var defaultConfig Config = Config{
-	30, // PollingInterval
-	10, // DurationForAverage
-	"", // ApiKey
-	"", // ApplicationId
+	30,  // PollingInterval
+	10,  // DurationForAverage
+	"",  // ApiKey
+	"",  // ApplicationId
+	".", // SoundsDir
 }
 
 // TODO: Allow setting the ApiKey and AppId, at least, with command-line flags.
