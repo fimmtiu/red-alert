@@ -75,7 +75,7 @@ func (rtp *ResponseTimePoller) getAverageCallTime() (float32, bool) {
 }
 
 func (rtp *ResponseTimePoller) makeNewRelicRequest(requestBody string) ([]byte, error) {
-	duration := time.Duration(rtp.config.DurationForAverage) * time.Minute
+	duration := time.Duration(rtp.config.DurationForAverage) * time.Second
 	now := time.Now()
 	earlier := now.Add(-duration)
 	requestBody += "&from=" + earlier.Format(time.RFC3339) + "&to=" + now.Format(time.RFC3339) + "&summarize=true"

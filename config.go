@@ -12,6 +12,7 @@ const usageString = "Usage: red-alert [config-file]"
 type Config struct {
 	PollingInterval    uint   // Poll New Relic every N seconds
 	DurationForAverage uint   // Calculate average response time based on the last N minutes
+	VolumeAdjustment   int    // Volume change in decibels
 	ApiKey             string // The New Relic API key
 	ApplicationId      string // The New Relic application ID
 	SoundsDir          string // The directory containing the sound files
@@ -19,13 +20,15 @@ type Config struct {
 
 var defaultConfig Config = Config{
 	30,  // PollingInterval
-	10,  // DurationForAverage
+	600, // DurationForAverage
+	0,   // VolumeLevel
 	"",  // ApiKey
 	"",  // ApplicationId
 	".", // SoundsDir
 }
 
 // TODO: Allow setting the ApiKey and AppId, at least, with command-line flags.
+// Also, it would be nice to allow setting the VolumeAdjustment on a per-sound basis.
 func GetConfig() Config {
 	config := defaultConfig
 	var logfile string
