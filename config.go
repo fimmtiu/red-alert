@@ -11,7 +11,7 @@ const usageString = "Usage: red-alert [config-file]"
 
 type Config struct {
 	PollingInterval    uint   // Poll New Relic every N seconds
-	DurationForAverage uint   // Calculate average response time based on the last N minutes
+	DurationForAverage uint   // Calculate average response time based on the last N seconds
 	VolumeAdjustment   int    // Volume change in decibels
 	ApiKey             string // The New Relic API key
 	ApplicationId      string // The New Relic application ID
@@ -20,7 +20,7 @@ type Config struct {
 
 var defaultConfig Config = Config{
 	30,  // PollingInterval
-	600, // DurationForAverage
+	300, // DurationForAverage
 	0,   // VolumeLevel
 	"",  // ApiKey
 	"",  // ApplicationId

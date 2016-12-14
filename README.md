@@ -43,8 +43,8 @@ Your New Relic application ID. No default, obviously; must be provided.
 **DurationForAverage** (unsigned integer)
 
 The "average response time" value will be calculated based on the response
-times from the past `DurationForAverage` seconds. Defaults to 600 seconds
-(10 minutes).
+times from the past `DurationForAverage` seconds. Defaults to 300 seconds
+(5 minutes).
 
 **PollingInterval** (unsigned integer)
 
