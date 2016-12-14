@@ -1,9 +1,12 @@
 # red-alert
 
 This is a little daemon which monitors average site response time in New
-Relic, then plays sounds if it goes above predefined thresholds. This is
-just a simple first draft where the thresholds are hard-coded in main.go,
-but it works and is being used in production.
+Relic, then plays sounds if it goes above predefined thresholds. It's smart
+enough to only play sounds once, each time things get worse, so that you're
+not constantly bombarded with sirens.
+
+This is just a simple first draft where the thresholds are hard-coded in
+main.go, but it works and is being used in production.
 
 ## Installation
 

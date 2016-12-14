@@ -28,12 +28,13 @@ func main() {
 	for responseTime := range poller {
 		previousThreshold := currentThreshold
 		currentThreshold = getThreshold(responseTime)
-		log.Printf("Response time: %.1f ms (%s)", responseTime, currentThreshold.name)
 
 		// This happens when things are getting bad.
 		if previousThreshold.responseTime < currentThreshold.responseTime && currentThreshold.soundFile != "" {
-			log.Printf("Playing %s...", currentThreshold.soundFile)
+			log.Printf("Problem: %s! Response time: %.1f ms", currentThreshold.name, responseTime)
 			player <- currentThreshold.soundFile
+		} else if previousThreshold.responseTime > currentThreshold.responseTime {
+			log.Printf("Recovery: %s. Response time: %.1f ms", currentThreshold.name, responseTime)
 		}
 	}
 }

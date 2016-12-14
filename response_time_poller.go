@@ -86,7 +86,6 @@ func (rtp *ResponseTimePoller) makeNewRelicRequest(requestBody string) ([]byte, 
 	}
 	request.Header.Add("X-Api-Key", rtp.config.ApiKey)
 	request.Header.Add("Content-Type", "application/x-www-form-urlencoded")
-	log.Printf("request: %s", request)
 	response, err := rtp.client.Do(request)
 	if err != nil {
 		return nil, err
@@ -96,6 +95,5 @@ func (rtp *ResponseTimePoller) makeNewRelicRequest(requestBody string) ([]byte, 
 	if err != nil {
 		return nil, err
 	}
-	log.Printf("contents: %s", contents)
 	return contents, nil
 }

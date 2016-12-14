@@ -13,7 +13,9 @@ func NewSoundPlayer(config Config) chan string {
 
 	go func() {
 		for soundFile := range player {
-			command := exec.Command("play", path.Join(config.SoundsDir, soundFile), "vol", volumeAdjustment, "dB")
+			soundPath := path.Join(config.SoundsDir, soundFile)
+			log.Printf("Playing %s", soundPath)
+			command := exec.Command("play", soundPath, "vol", volumeAdjustment, "dB")
 			if err := command.Run(); err != nil {
 				log.Printf("Error playing sound: %s", err)
 			}
